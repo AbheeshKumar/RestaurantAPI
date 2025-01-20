@@ -20,3 +20,4 @@ C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Domain\obj\Debug\
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Domain\obj\Debug\net8.0\refint\Restaurants.Domain.dll
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Domain\obj\Debug\net8.0\Restaurants.Domain.pdb
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Domain\obj\Debug\net8.0\ref\Restaurants.Domain.dll
+C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Domain\obj\Debug\net8.0\Restaurants.Domain.sourcelink.json

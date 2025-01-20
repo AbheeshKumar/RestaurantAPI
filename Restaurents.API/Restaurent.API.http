@@ -1,19 +1,37 @@
 @Restaurent.API_HostAddress = https://localhost:7150
 
-GET {{Restaurent.API_HostAddress}}/weatherforecast/23/example?max=15
+GET {{Restaurent.API_HostAddress}}/api/restaurants
 
 ###
 
-GET {{Restaurent.API_HostAddress}}/weatherforecast/currentDay
+GET {{Restaurent.API_HostAddress}}/api/restaurants/2
 
 ###
 
-POST {{Restaurent.API_HostAddress}}/weatherforecast/generate?count=4
+Post {{Restaurent.API_HostAddress}}/api/restaurants/
 Content-Type: application/json
 
 {
-    "MinTemp": 15,
-    "MaxTemp": 20
+    "Name" : "Ching Chong",
+    "Category": "Chinese",
+    "ContactEmail": "abheesh",
+    "ContactNumber": "02222",
+    "PostalCode": "55-420",
+    "ContactEmail" : "abhesh@gmail.com"
+}
+
+###
+
+DELETE {{Restaurent.API_HostAddress}}/api/restaurants/2
+
+###
+
+PATCH {{Restaurent.API_HostAddress}}/api/restaurants/99
+Content-Type: application/json
+{
+    "Name": "Dummy Test",
+    "Description": "Dummy Description",
+    "HasDelivery": true
 }
 
 ###

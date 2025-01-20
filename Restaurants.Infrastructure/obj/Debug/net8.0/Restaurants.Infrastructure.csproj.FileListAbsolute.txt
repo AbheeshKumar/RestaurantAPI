@@ -36,3 +36,4 @@ C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Infrastructure\ob
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Infrastructure\obj\Debug\net8.0\Restaurants.Infrastructure.pdb
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Infrastructure\obj\Debug\net8.0\Restaurants.Infrastructure.genruntimeconfig.cache
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Infrastructure\obj\Debug\net8.0\ref\Restaurants.Infrastructure.dll
+C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Infrastructure\obj\Debug\net8.0\Restaurants.Infrastructure.sourcelink.json

@@ -17,7 +17,7 @@ internal class RestaurantSeeders(RestaurantDbContext dbContext) : IRestaurantSee
         }
     }
 
-    private IEnumerable<Restaurant> GetRestaurants()
+    private static List<Restaurant> GetRestaurants()
     {
         List<Restaurant> restaurants = [
             new()

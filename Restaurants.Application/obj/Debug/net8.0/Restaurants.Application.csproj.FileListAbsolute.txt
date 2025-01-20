@@ -28,3 +28,4 @@ C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Application\obj\D
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Application\obj\Debug\net8.0\refint\Restaurants.Application.dll
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Application\obj\Debug\net8.0\Restaurants.Application.pdb
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Application\obj\Debug\net8.0\ref\Restaurants.Application.dll
+C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurants.Application\obj\Debug\net8.0\Restaurants.Application.sourcelink.json
