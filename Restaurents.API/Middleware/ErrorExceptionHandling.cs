@@ -14,7 +14,6 @@ public class ErrorExceptionHandling (ILogger<ErrorExceptionHandling> logger) : I
         {
             context.Response.StatusCode = 404;
             await context.Response.WriteAsync(notFound.Message);
-
             logger.LogWarning(notFound.Message);
         }
         catch (Exception ex)

@@ -10,6 +10,7 @@ namespace Restaurants.Infrastructure.Repositories
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
             var restaurants = await dbContext.Restuarants.Include(r=>r.Dishes).ToListAsync();
+
             return restaurants;
         }
 

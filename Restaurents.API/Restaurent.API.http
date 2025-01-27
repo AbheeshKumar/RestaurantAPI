@@ -4,7 +4,7 @@ GET {{Restaurent.API_HostAddress}}/api/restaurants
 
 ###
 
-GET {{Restaurent.API_HostAddress}}/api/restaurants/2
+GET {{Restaurent.API_HostAddress}}/api/restaurants/19
 
 ###
 
@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ###
 
-DELETE {{Restaurent.API_HostAddress}}/api/restaurants/2
+DELETE {{Restaurent.API_HostAddress}}/api/restaurants/19
 
 ###
 
@@ -33,5 +33,32 @@ Content-Type: application/json
     "Description": "Dummy Description",
     "HasDelivery": true
 }
+
+###
+
+POST {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
+Content-Type: application/json
+
+{
+    "Name": "Noodles",
+    "Description" : "Thick and long",
+    "Price": 45
+}
+
+###
+
+GET {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
+
+###
+
+GET {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes/10
+
+###
+
+DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes/10
+
+###
+
+DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
 
 ###
