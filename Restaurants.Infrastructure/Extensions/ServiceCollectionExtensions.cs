@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Persistance;
 using Restaurants.Infrastructure.Repositories;
@@ -15,6 +16,9 @@ namespace Restaurants.Infrastructure.Extensions
             var ConnectionString = configuration.GetConnectionString("RestaurantDb");
             services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(ConnectionString)
                 .EnableSensitiveDataLogging());
+
+            services.AddIdentityApiEndpoints<User>()
+                .AddEntityFrameworkStores<RestaurantDbContext>();
 
             services.AddScoped<IRestaurantSeeders, RestaurantSeeders>();
             services.AddScoped<IRestaurantsRepository, RestaurantRepository>();
