@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Restaurants.Domain.Entities;
+using Microsoft.Extensions.Options;
 
 namespace Restaurants.Infrastructure.Persistance;
 
@@ -13,7 +14,6 @@ internal class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Restaurant>()

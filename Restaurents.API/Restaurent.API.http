@@ -1,15 +1,16 @@
 @Restaurent.API_HostAddress = https://localhost:7150
+@token = CfDJ8K13CdwTVX1PtGpDupX5ugiYrR2AXwCnny-kocHVjdSShx4LAwjJEmMFyN9FuvZQeJFJ0cOWmxdrQrcCovypPDuPNmOi-rTEMPdBSQNpZs3sB6GkYckKgN25b912IEIAPMosnsDyUdKHsRukXN7_2GB5tOWbbS1yqglhwnifNq6CbP7kvTeGimM_SzdBPG3wFkBC0h_SFFYrkwm4Unr25BrXq9HVgugj6GtR8MOtxmxuxWEX9hqKYWMpoKng1QDBeyXIqvBFTwIaoC-wa5FJPKnzhXHAEYUhJqSqL4aq8eXLfSTUk-hEo3e9eHPOfIwHU6vCC1kHmDL_SbAUWi_i4oO3KaZj-tPNwPlPnvfMBDzQVPx1T45_AB6BI8TBVQ4D9F7b-_m44mgP7CvuyuHzFDq72_Q4pPRV5dQ-zckETgFC-zaXLLyAhTz4hSHjKlVlQSiSx2r-kytr4jJWOi6AFVS0auuvHrVHTwvTtTquA_d-J63DvcPNBxdIDOM_qSRzyuaPnmtX6d0iIuQu3qmf-yQKqQ9TVDalBp_TPjYDHxtMn6uAZCcZuoblRIZYSuM5Vg9GxxeM0ls1VZUE4HqSSNYCgOcxVbuOkZx5JsaW6IJvMWIvBo5DdB1auFjXpXggnUQL1xCYtpDu2sMMxdq2ycrgScljrvyhSxLVKvXlmNpQEAndeF0tF6-oJTMaK4SUww
 
 GET {{Restaurent.API_HostAddress}}/api/restaurants
-
 ###
 
-GET {{Restaurent.API_HostAddress}}/api/restaurants/19
+GET {{Restaurent.API_HostAddress}}/api/restaurants/21
 
 ###
 
 Post {{Restaurent.API_HostAddress}}/api/restaurants/
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
     "Name" : "Ching Chong",
@@ -62,3 +63,19 @@ DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes/10
 DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
 
 ###
+
+POST {{Restaurent.API_HostAddress}}/api/identity/register
+Content-Type: Application/json
+{
+    "email" : "abhesh@gmail.com",
+    "password": "Abheesh123!"
+}
+
+###
+
+POST {{Restaurent.API_HostAddress}}/api/identity/login
+Content-Type: Application/json
+{
+    "email" : "abhesh@gmail.com",
+    "password": "Abheesh123!"
+}
