@@ -1,11 +1,12 @@
 @Restaurent.API_HostAddress = https://localhost:7150
+@token = CfDJ8K13CdwTVX1PtGpDupX5ughpGuzbTYCu_Vk2CtyMSGkue1EwJl-yQr5JlO0qpocyyRFceMo979P6IVvl6ZCMzHV4hdz7eexlcC5jDW3uyOHDR0h5fXsKo0yZU_OEW7xqCs5UYesJAlYBmaLxZG-fXsH-JzR7SxiUzHFEhdkahZEnK_0X8FPs17MZ-BGCkqsbLETYhhA90E2sQuOwLU0rrGJtyZmA0_uZGX__aShHOdWt6LFeLAVLd2HkD-BLsNw8wnmHnFYtPuGd0IHGGgi7uUMszuhVuK2QsJe_Jv_nISDp0onB0orAT9HmTkpt-6orsPW30Epox1ulK-MLQ3bw4TJKd0rlhpV9jF7J7GNdTuq2MoeYEaH-bXuhbx5fcodzFTYWj4iGxGHkdDcCaeiNwQYD_h-h_8ahOu1bdEIHXAt__JjhzjrQ3uIOLavQ5HcrXveIFT_tQVOA6IeFozxH9ASOZMfUu1GW_AZrNX0yUxvCKLNyAXRpmAQqrEpH6SgdpWsm3buR1ATMMM2gpXlxcp0SFOUa1emd2EQXP241lemkzRZh6LZSgJe5PbKcDmhCLGoSXrpn7fZYSo8TSWmteGJlGyZjwkyZugqctofojhBaS8C_pupBTO8F9yY4HFDi0h1j47Ryp-WU17f_xegC8GbWU410jAv9dB_fTRsgC6AE9t_2hTtAgCHYsqPJXe5Wnw
 
 GET {{Restaurent.API_HostAddress}}/api/restaurants
-
+Authorization: Bearer {{token}}
 ###
 
-GET {{Restaurent.API_HostAddress}}/api/restaurants/19
-
+GET {{Restaurent.API_HostAddress}}/api/restaurants/5
+Authorization: Bearer {{token}}
 ###
 
 Post {{Restaurent.API_HostAddress}}/api/restaurants/
@@ -22,7 +23,7 @@ Content-Type: application/json
 
 ###
 
-DELETE {{Restaurent.API_HostAddress}}/api/restaurants/19
+DELETE {{Restaurent.API_HostAddress}}/api/restaurants/30
 
 ###
 
@@ -62,3 +63,28 @@ DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes/10
 DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
 
 ###
+
+POST {{Restaurent.API_HostAddress}}/register
+Content-Type:Application/json
+{
+    "email" : "abheesh@test.com",
+    "password": "Password123!"
+}
+
+###
+
+POST {{Restaurent.API_HostAddress}}/api/identity/login
+Content-Type: Application/json
+{
+    "email" : "abheesh@test.com",
+    "password": "Password123!"
+}
+
+###
+
+PATCH {{Restaurent.API_HostAddress}}/api/identity/user
+Content-Type: Application/json
+{
+    "DateofBirth": "2001-01-01",
+    "Nationality": "pakistani"
+}

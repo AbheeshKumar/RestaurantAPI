@@ -1,0 +1,14 @@
+[33med3deb5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to ed3deb5
+[33m704693e[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{1}: reset: moving to 704693e7662cb1251f469df8b328302541a6dfa8
+[33m704693e[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{2}: commit: Added dishes endpoint
+[33med3deb5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{3}: reset: moving to ed3deb5
+[33med3deb5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{4}: reset: moving to ed3deb5
+[33mee4de76[m HEAD@{5}: reset: moving to ee4de76
+[33mee4de76[m HEAD@{6}: reset: moving to ee4de76
+[33m346af56[m HEAD@{7}: commit: Added User Identity
+[33m50bc8dd[m HEAD@{8}: commit: User Identity
+[33med3deb5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m HEAD@{9}: commit: Added Dishes endpoints
+[33mee4de76[m HEAD@{10}: commit: Added Controllers, Middleware and CQRS
+[33mbd1929b[m HEAD@{11}: commit: Database configured
+[33md3d96de[m HEAD@{12}: Branch: renamed refs/heads/master to refs/heads/main
+[33md3d96de[m HEAD@{14}: commit (initial): first commit

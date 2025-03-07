@@ -334,3 +334,4 @@ C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurents.API\bin\Debug\net
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurents.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurents.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurents.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\skpor\Downloads\courses\Dotnet\Restaurant\Restaurents.API\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
