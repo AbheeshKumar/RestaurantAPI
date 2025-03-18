@@ -12,8 +12,8 @@ using Restaurants.Infrastructure.Persistance;
 namespace Restaurants.Infrastructure.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20250307125536_UserUpdate")]
-    partial class UserUpdate
+    [Migration("20250317143014_newDB")]
+    partial class newDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -214,7 +214,13 @@ namespace Restaurants.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Restuarants");
                 });
@@ -352,6 +358,12 @@ namespace Restaurants.Infrastructure.Migrations
 
             modelBuilder.Entity("Restaurants.Domain.Entities.Restaurant", b =>
                 {
+                    b.HasOne("Restaurants.Domain.Entities.User", "Owner")
+                        .WithMany("OwnedRestaurants")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.OwnsOne("Restaurants.Domain.Entities.Address", "Address", b1 =>
                         {
                             b1.Property<int>("RestaurantId")
@@ -375,11 +387,18 @@ namespace Restaurants.Infrastructure.Migrations
                         });
 
                     b.Navigation("Address");
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("Restaurants.Domain.Entities.Restaurant", b =>
                 {
                     b.Navigation("Dishes");
+                });
+
+            modelBuilder.Entity("Restaurants.Domain.Entities.User", b =>
+                {
+                    b.Navigation("OwnedRestaurants");
                 });
 #pragma warning restore 612, 618
         }

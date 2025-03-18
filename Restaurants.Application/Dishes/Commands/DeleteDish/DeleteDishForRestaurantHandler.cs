@@ -3,11 +3,14 @@ using Microsoft.Extensions.Logging;
 using Restaurants.Domain.Repositories;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Entities;
+using Restaurants.Domain.Constants;
+using Restaurants.Domain.Interfaces;
 
 namespace Restaurants.Application.Dishes.Commands.DeleteDish;
 
 internal class DeleteDishForRestaurantHandler(ILogger<DeleteDishForRestaurantHandler> logger,
-    IRestaurantsRepository restaurantsRepository, IDishRepository dishRepository) : IRequestHandler<DeleteDishForRestaurantCommand>
+    IRestaurantsRepository restaurantsRepository, IDishRepository dishRepository,
+    IRestaurantAuthorizationService restaurantAuthorization) : IRequestHandler<DeleteDishForRestaurantCommand>
 {
     public async Task Handle(DeleteDishForRestaurantCommand command, CancellationToken cancellationToken)
     {
@@ -18,6 +21,9 @@ internal class DeleteDishForRestaurantHandler(ILogger<DeleteDishForRestaurantHan
 
         var dish = restaurant.Dishes.FirstOrDefault(d => d.Id == command.dishId)
             ?? throw new NotFoundException(nameof(Dish), command.dishId.ToString());
+
+        if (!restaurantAuthorization.Authorize(restaurant, ResourceOperations.Delete))
+            throw new ForbidException();
 
         await dishRepository.DeleteSpecific(dish);
     }

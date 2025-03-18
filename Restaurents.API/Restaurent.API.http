@@ -1,5 +1,5 @@
 @Restaurent.API_HostAddress = https://localhost:7150
-@token = CfDJ8K13CdwTVX1PtGpDupX5ughpGuzbTYCu_Vk2CtyMSGkue1EwJl-yQr5JlO0qpocyyRFceMo979P6IVvl6ZCMzHV4hdz7eexlcC5jDW3uyOHDR0h5fXsKo0yZU_OEW7xqCs5UYesJAlYBmaLxZG-fXsH-JzR7SxiUzHFEhdkahZEnK_0X8FPs17MZ-BGCkqsbLETYhhA90E2sQuOwLU0rrGJtyZmA0_uZGX__aShHOdWt6LFeLAVLd2HkD-BLsNw8wnmHnFYtPuGd0IHGGgi7uUMszuhVuK2QsJe_Jv_nISDp0onB0orAT9HmTkpt-6orsPW30Epox1ulK-MLQ3bw4TJKd0rlhpV9jF7J7GNdTuq2MoeYEaH-bXuhbx5fcodzFTYWj4iGxGHkdDcCaeiNwQYD_h-h_8ahOu1bdEIHXAt__JjhzjrQ3uIOLavQ5HcrXveIFT_tQVOA6IeFozxH9ASOZMfUu1GW_AZrNX0yUxvCKLNyAXRpmAQqrEpH6SgdpWsm3buR1ATMMM2gpXlxcp0SFOUa1emd2EQXP241lemkzRZh6LZSgJe5PbKcDmhCLGoSXrpn7fZYSo8TSWmteGJlGyZjwkyZugqctofojhBaS8C_pupBTO8F9yY4HFDi0h1j47Ryp-WU17f_xegC8GbWU410jAv9dB_fTRsgC6AE9t_2hTtAgCHYsqPJXe5Wnw
+@token = CfDJ8K13CdwTVX1PtGpDupX5ughtIfxJ2iv7_0w5FOV9KQcfYqxIDdqxf49oZoR4e0WiRso0F2rWZbyDJpT8qxjSaXn0EMVbd3SXepci3brN0iMzOUv8B27YkmxXcBerG81CWctScN_nz3rjAWwAibFG14lH8d0Zb8v3lcIW4wPXucelz4qlm0VR4Hm8ldffKDA-nYZ9mfn_ZWlax2xy-FIpUwxaP3kGarY65M1rPRXSSSppgOXWnUxRqSAXAdifiJZBoj4RsQCR-TSAkg63SnBKxggGf9y6wsZcn90v0vdXkwSZ2ruTAUnZtlRG3wKPWVAAL1iSu2W_4JaHy36pZ7WIYVKKSd5N_4yC7LY0EDGrte2Ta1NeZfSkP71rQSnvHgr8fz1yaq-OZ-ijVzxVo63TNWdWkG-gfl5kpU_wBibuBkSFF4XRwDDORR23acwK1MeDnaRpAnnQEjZ44FxnAhn2QER29J7dA4-3UKCDO9SmlwCu4oOwKc8v-JS9zdnwYFk7ckG-e5-m4nq2kld4Pbp8P2dS3Y884RqEP0d-FOZnITfd9jSEWfDE_WCrND4eqc5FwG4xGdXLoMdIPkSs_6OHTVuV4k4_gWOtQQ7kuU9MPI7KKR4kz18CFM_CbW9qLggLxIINkGwtnyYZkmOzRgWGYk5IN_5BUpv5KyquoTjpecUTdHMYgMGnP_s4SU1FnRp4kA
 
 GET {{Restaurent.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
@@ -11,20 +11,20 @@ Authorization: Bearer {{token}}
 
 Post {{Restaurent.API_HostAddress}}/api/restaurants/
 Content-Type: application/json
-
+Authorization: Bearer {{token}}
 {
-    "Name" : "Ching Chong",
+    "Name" : "Spicy Chowmein",
     "Category": "Chinese",
     "ContactEmail": "abheesh",
     "ContactNumber": "02222",
     "PostalCode": "55-420",
-    "ContactEmail" : "abhesh@gmail.com"
+    "ContactEmail" : "owner@gmail.com"
 }
 
 ###
 
 DELETE {{Restaurent.API_HostAddress}}/api/restaurants/30
-
+Authorization: Bearer {{token}}
 ###
 
 PATCH {{Restaurent.API_HostAddress}}/api/restaurants/99
@@ -39,11 +39,11 @@ Content-Type: application/json
 
 POST {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
 Content-Type: application/json
-
+Authorization: Bearer {{token}}
 {
-    "Name": "Noodles",
-    "Description" : "Thick and long",
-    "Price": 45
+    "Name": "Spicy Chowmein",
+    "Description" : "Thick and Fullfilling",
+    "Price": 40
 }
 
 ###
@@ -64,10 +64,10 @@ DELETE {{Restaurent.API_HostAddress}}/api/restaurants/20/dishes
 
 ###
 
-POST {{Restaurent.API_HostAddress}}/register
+POST {{Restaurent.API_HostAddress}}/api/identity/register
 Content-Type:Application/json
 {
-    "email" : "abheesh@test.com",
+    "email" : "testuser@test.com",
     "password": "Password123!"
 }
 
@@ -76,7 +76,7 @@ Content-Type:Application/json
 POST {{Restaurent.API_HostAddress}}/api/identity/login
 Content-Type: Application/json
 {
-    "email" : "abheesh@test.com",
+    "email" : "testuser@test.com",
     "password": "Password123!"
 }
 
@@ -88,3 +88,24 @@ Content-Type: Application/json
     "DateofBirth": "2001-01-01",
     "Nationality": "pakistani"
 }
+###
+
+POST {{Restaurent.API_HostAddress}}/api/identity/userRole
+Authorization: Bearer {{token}}
+Content-Type: Application/json
+{
+    "UserEmail" : "testuser@test.com",
+    "RoleName": "user"
+}
+
+###
+
+DELETE {{Restaurent.API_HostAddress}}/api/identity/removeUserRole
+Authorization: Bearer {{token}}
+Content-Type: Application/json
+{
+    "UserEmail" : "testuser@test.com",
+    "RoleName": "user"
+}
+
+###

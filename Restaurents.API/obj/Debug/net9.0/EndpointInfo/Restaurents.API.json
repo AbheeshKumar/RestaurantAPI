@@ -569,6 +569,68 @@
         }
       }
     },
+    "/api/identity/userRole": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignUserRoleCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignUserRoleCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignUserRoleCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/identity/removeUserRole": {
+      "delete": {
+        "tags": [
+          "Identity"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveUserRoleCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveUserRoleCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveUserRoleCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/restaurants": {
       "get": {
         "tags": [
@@ -817,6 +879,20 @@
             "nullable": true
           },
           "postalCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AssignUserRoleCommand": {
+        "type": "object",
+        "properties": {
+          "userEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
             "type": "string",
             "nullable": true
           }
@@ -1122,6 +1198,20 @@
         },
         "additionalProperties": false
       },
+      "RemoveUserRoleCommand": {
+        "type": "object",
+        "properties": {
+          "userEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ResendConfirmationEmailRequest": {
         "required": [
           "email"
@@ -1196,6 +1286,13 @@
             "items": {
               "$ref": "#/components/schemas/Dish"
             },
+            "nullable": true
+          },
+          "owner": {
+            "$ref": "#/components/schemas/User"
+          },
+          "ownerId": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -1332,6 +1429,85 @@
           },
           "nationality": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownedRestaurants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Restaurant"
+            },
             "nullable": true
           }
         },

@@ -27,8 +27,16 @@ internal class UserContext(IHttpContextAccessor httpContextAccessor) : IUserCont
         var userId = user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier)!.Value;
         var userEmail = user.FindFirst(c => c.Type == ClaimTypes.Email)!.Value;
         var userRoles = user.FindAll(c => c.Type == ClaimTypes.Role)!.Select(r => r.Value);
+        var nationality = user.FindFirst(c => c.Type == "Nationality")?.Value;
+        var dobString = user.FindFirst(c => c.Type == "DateOfBirth")?.Value;
 
-        return new CurrentUser(userId, userEmail, userRoles);
+        var dob = dobString == null ?
+            (DateOnly?) null :
+            DateOnly.ParseExact(dobString, "yyyy-MM-dd");
+
+        var ownedRestaurants = user.FindAll(c => c.Type == "OwnedRestaurants").Select(r => r.Value);
+
+        return new CurrentUser(userId, userEmail, userRoles, nationality, dob, ownedRestaurants);
 
     }
 }

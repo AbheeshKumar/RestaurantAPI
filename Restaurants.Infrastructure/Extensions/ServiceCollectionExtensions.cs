@@ -1,8 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Domain.Entities;
+using Restaurants.Domain.Interfaces;
 using Restaurants.Domain.Repositories;
+using Restaurants.Infrastructure.Authorization;
+using Restaurants.Infrastructure.Authorization.Requirements.MinimumAge;
+using Restaurants.Infrastructure.Authorization.Requirements.MinimumRestaurants;
+using Restaurants.Infrastructure.Authorization.Services;
 using Restaurants.Infrastructure.Persistance;
 using Restaurants.Infrastructure.Repositories;
 using Restaurants.Infrastructure.Seeders;
@@ -18,11 +25,22 @@ namespace Restaurants.Infrastructure.Extensions
                 .EnableSensitiveDataLogging());
 
             services.AddIdentityApiEndpoints<User>()
+                .AddRoles<IdentityRole>()
+                .AddClaimsPrincipalFactory<RestaurantsUserClaimsPrincipleFactor>()
                 .AddEntityFrameworkStores<RestaurantDbContext>();
 
             services.AddScoped<IRestaurantSeeders, RestaurantSeeders>();
             services.AddScoped<IRestaurantsRepository, RestaurantRepository>();
             services.AddScoped<IDishRepository, DishRepository>();
+
+            services.AddAuthorizationBuilder()
+                .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(ClaimTypes.Nationality, "Pakistani"))
+                .AddPolicy(PolicyNames.Atleast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)))
+                .AddPolicy(PolicyNames.Atleast2, builder => builder.AddRequirements(new MinimumRestaurantsRequriement(2)));
+
+            services.AddScoped<IAuthorizationHandler, MinimumAgeHandler>();
+            services.AddScoped<IAuthorizationHandler, MinimumRestaurantsHandler>();
+            services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
         }
     }
 }
