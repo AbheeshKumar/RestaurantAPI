@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Restaurants.Application.Common;
+using Restaurants.Application.Constants;
 using Restaurants.Application.Restaurants.Dtos;
 
 namespace Restaurants.Application.Restaurants.Query.GetAllRestaurants
@@ -9,5 +10,7 @@ namespace Restaurants.Application.Restaurants.Query.GetAllRestaurants
         public string? SearchParam { get; set; }
         public int pageSize { get; set; }
         public int pageNumber { get; set; }
+        public string? sortBy { get; set; }
+        public SortDirection sortDirection { get; set; }
     }
 }

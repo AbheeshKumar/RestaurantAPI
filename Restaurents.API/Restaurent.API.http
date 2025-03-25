@@ -1,7 +1,7 @@
 @Restaurent.API_HostAddress = https://localhost:7150
-@token = CfDJ8K13CdwTVX1PtGpDupX5ughag1Rjpx4eTcTDfniHHa-OyEuLg969-u1RP8lcgjlluGOq7R052XRNDSuwemVXNi8Jlew57u-yxJllO31Cs_HU9-a7CXZzW7960kOlO2IM9srgaVsg4gkRPquBrLrR3Tfe9IcxxZMq8NSemtC1PnTPT6wx1FmvBnJqk61O4KVxgpv9WPbepi-JzGxNqqp2WX9NuVcC6xyEvB898ins1uKqcZvP8KDy0_keE6aEVmB2a7Lb7yqgJIj3kQrV4gWYS82LMTsPvDuVE-ivivNrAKCwyCQnjPJM4Az52K-kF-t4TSeFyaIgVioNJkxWKBP6c0W6EIYtCw_WUyOXWYhKftB3Kh19LiUlUG3U04z4-kwNRa4uNlGhm2S3hmYfvQdTCsk-JROtZjXklFKGioCcQGmD2OkBMHzfFQwYzd_c4-8JeFsOgSyNn4ajT0JF2NPVlt5fGZH1PqgkI2zZoepUkYylLR7n8dZa5pMG51604hQg3j-5ePHe8gIfLHrY_jTRjH-q2uD1-OcekF6z7aRi7KqQhCtJ7HVXnTwC3G2NjGaLsSDUqLf7Ups2leZn3PD8YpjO2YOYrvC5qMfSjCUfJKc--tXdRO7L9Gr26XwMKKTxBhZe3YKkA3LoZNoWQrC6oJ49aAUh2OqDQZpBIbKb8hjHtUvVIWOIhOLwpja4oXDurf7Fn9rnZNjs_wg_JB5WWvKq7Xnu9JUT7J6kIJRVbvBjMw0i7dyZnwxP6Tm5vDKcr1rrFS1NjdOxCnMSW2-ybdwanHtxs57iTmFz982t8_ge
+@token = CfDJ8K13CdwTVX1PtGpDupX5ugg6z2n0_PwnEb5_ozrZ6JJF_b1mf5YthsEu25ROH9H7aejspN2xalGSgvN4h5VfaZ2eNLreP5qGDGUY-leixcpDMk64In6VfLbw3QM1O4vCcW93Ad5cupKJRxjDf7kLAhAYqUW7bzuIsxssCdas1QddTavX6EJZzJIrN513nqL5xFIIrYgLTTLWwCqKu9IxSlGKp73WiH6RU4t9rgjHyZ-m_-mY4QsEB3PtT1Vk4qnyUvhi4BoABS_N-0fvzhXUusw8wTFucBdb5Ju257QBoct1380XpTq7SlRcXgE8TiGZSeOdCg4_HmDbt3M_B6ZMWxQKj_2_htv7vPh1sajB7tUcr58vjFN2ZKIKDvZBMeExiCLXn5Jnc9V2sUE5MT01SrOcaz8gEm0pjnzfCbUtwVcq8dAPug8DxATJR-VKoGUOJWSW6Xbl2mFP3y015bv5vr6r29mbNzdvCvMNBn3weCYpFxsy7f0HbpCIdMyCUu_8ED9hFzzTcti6oXZw7I159yzp8ZMR0KrSFr-8ryNi7eqXvUEHZSP4GaQOKHv_2TG2rWWEubuSte2vo0Hjj48oljVC4HSkJhfLK9zF9XPhla6ckVpBwUplof1ZPDII6oZi5x8uyRYywQ0b_SB4cu6ewZEQqgnU95iHfKh3sa6f4Cjjjv_uEh-9Fj_EpNW2oe3NWLhGVBR49lrfVqzxcOcG8b-LpsJ9WGi5KZeXej27dtNMmZ1CM9yT82N-oMIMZ7ExamlaA8N6d4jbmO3wv2tYWsOtCZq0VL4ZqbCZWiPclJpX
 
-GET {{Restaurent.API_HostAddress}}/api/restaurants?searchparam=kfc&pageSize=5&pageNumber=1
+GET {{Restaurent.API_HostAddress}}/api/restaurants?searchParam=&pageSize=5&pageNumber=1&sortBy=Name
 Authorization: Bearer {{token}}
 ###
 
@@ -13,8 +13,8 @@ Post {{Restaurent.API_HostAddress}}/api/restaurants/
 Content-Type: application/json
 Authorization: Bearer {{token}}
 {
-    "Name" : "Spicy Chowmein",
-    "Category": "Chinese",
+    "Name" : "Zinc Drink",
+    "Category": "Ziscy",
     "ContactEmail": "abheesh",
     "ContactNumber": "02222",
     "PostalCode": "55-420",

@@ -16,7 +16,8 @@ internal class GetAllRestaurantsHandler(ILogger<GetAllRestaurantsHandler> logger
     { 
         logger.LogInformation("Fetching all Restaurants");
         var (restaurants, totalCount) = await restaurantsRepository.GetAllMatchingAsync(
-            request.SearchParam, request.pageSize, request.pageNumber
+            request.SearchParam, request.pageSize, request.pageNumber,
+            request.sortBy, request.sortDirection
             );
 
         var restaurantsDtos = mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
