@@ -2,6 +2,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Restaurants.Application.Common;
 using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Domain.Repositories;
 
@@ -9,14 +10,19 @@ namespace Restaurants.Application.Restaurants.Query.GetAllRestaurants;
 
 internal class GetAllRestaurantsHandler(ILogger<GetAllRestaurantsHandler> logger, 
     IMapper mapper, IRestaurantsRepository restaurantsRepository) 
-    : IRequestHandler<GetAllRestaurantsQuery, IEnumerable<RestaurantDto>>
+    : IRequestHandler<GetAllRestaurantsQuery, PageResult<RestaurantDto>>
 {
-    public async Task<IEnumerable<RestaurantDto>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
+    public async Task<PageResult<RestaurantDto>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
     { 
         logger.LogInformation("Fetching all Restaurants");
-        var restaurants = await restaurantsRepository.GetAllAsync();
+        var (restaurants, totalCount) = await restaurantsRepository.GetAllMatchingAsync(
+            request.SearchParam, request.pageSize, request.pageNumber
+            );
+
         var restaurantsDtos = mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
-        return restaurantsDtos;
+
+        var result = new PageResult<RestaurantDto>(restaurantsDtos, totalCount, request.pageSize, request.pageNumber);
+        return result;
     }
 
 }

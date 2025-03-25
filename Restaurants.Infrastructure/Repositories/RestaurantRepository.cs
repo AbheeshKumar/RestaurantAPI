@@ -14,6 +14,27 @@ namespace Restaurants.Infrastructure.Repositories
             return restaurants;
         }
 
+        public async Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(
+            string? searchParam, int pageSize, int pageNumber)
+        {
+            var searchParamLower = searchParam?.ToLower();
+
+            var baseQuery = dbContext.Restuarants
+                .Include(r => r.Dishes)
+                .Where(r => searchParamLower == null || (
+                        r.Name.Contains(searchParamLower) || r.Description.Contains(searchParamLower)) 
+                     );
+
+            var totalCount = await baseQuery.CountAsync();
+
+            var restaurants = await baseQuery
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (restaurants, totalCount);
+
+        }
         public async Task<Restaurant?> GetSpecificAsync(int RestaurantId)
         {
             var restaurant = await dbContext.Restuarants.
