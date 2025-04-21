@@ -1,0 +1,24 @@
+meta {
+  name: patch /api/restaurants/:id
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/api/restaurants/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 
+}
+
+body:json {
+  {
+    "id": "",
+    "name": "",
+    "description": "",
+    "hasDelivery": ""
+  }
+}

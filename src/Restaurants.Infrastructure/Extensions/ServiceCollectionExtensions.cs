@@ -10,9 +10,11 @@ using Restaurants.Infrastructure.Authorization;
 using Restaurants.Infrastructure.Authorization.Requirements.MinimumAge;
 using Restaurants.Infrastructure.Authorization.Requirements.MinimumRestaurants;
 using Restaurants.Infrastructure.Authorization.Services;
+using Restaurants.Infrastructure.Configurations;
 using Restaurants.Infrastructure.Persistance;
 using Restaurants.Infrastructure.Repositories;
 using Restaurants.Infrastructure.Seeders;
+using Restaurants.Infrastructure.Storage;
 
 namespace Restaurants.Infrastructure.Extensions
 {
@@ -41,6 +43,9 @@ namespace Restaurants.Infrastructure.Extensions
             services.AddScoped<IAuthorizationHandler, MinimumAgeHandler>();
             services.AddScoped<IAuthorizationHandler, MinimumRestaurantsHandler>();
             services.AddScoped<IRestaurantAuthorizationService, RestaurantAuthorizationService>();
+
+            services.Configure<BlobStorageSettings>(configuration.GetSection("BlobStorage"));
+            services.AddScoped<IBlobStorageService, BlobStorageService>();
         }
     }
 }

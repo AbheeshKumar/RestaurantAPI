@@ -1,0 +1,17 @@
+meta {
+  name: post /api/identity/refresh
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/identity/refresh
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "refreshToken": ""
+  }
+}

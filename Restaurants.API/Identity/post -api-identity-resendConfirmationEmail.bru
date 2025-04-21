@@ -1,0 +1,17 @@
+meta {
+  name: post /api/identity/resendConfirmationEmail
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/api/identity/resendConfirmationEmail
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": ""
+  }
+}

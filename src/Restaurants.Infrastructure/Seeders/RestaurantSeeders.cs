@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Restaurants.Domain.Constants;
 using Restaurants.Domain.Entities;
 using Restaurants.Infrastructure.Persistance;
@@ -9,6 +9,11 @@ internal class RestaurantSeeders(RestaurantDbContext dbContext) : IRestaurantSee
 {
     public async Task Seed()
     {
+        if (dbContext.Database.GetPendingMigrations().Any())
+        {
+            await dbContext.Database.MigrateAsync();
+        }
+
         if (await dbContext.Database.CanConnectAsync())
         {
             if (!dbContext.Restuarants.Any())
@@ -47,10 +52,16 @@ internal class RestaurantSeeders(RestaurantDbContext dbContext) : IRestaurantSee
 
     private static List<Restaurant> GetRestaurants()
     {
+        User user = new()
+        {
+            Email = "seed-user@test.com"
+        };
+
         List<Restaurant> restaurants = [
             new()
             {
                 Name = "KFC",
+                Owner = user,
                 Category = "Fast Food",
                 Description =
                     "KFC (short for Kentucky Fried Chicken) is an American fast food restaurant chain headquartered in Louisville, Kentucky, that specializes in fried chicken.",
@@ -82,6 +93,7 @@ internal class RestaurantSeeders(RestaurantDbContext dbContext) : IRestaurantSee
             new ()
             {
                 Name = "McDonald",
+                Owner = user,
                 Category = "Fast Food",
                 Description =
                     "McDonald's Corporation (McDonald's), incorporated on December 21, 1964, operates and franchises McDonald's restaurants.",

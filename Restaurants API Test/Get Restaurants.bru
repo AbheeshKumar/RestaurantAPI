@@ -1,0 +1,16 @@
+meta {
+  name: Get Restaurants
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://restaurant-prod-hnfvbvdvbnd7eebg.southeastasia-01.azurewebsites.net/api/restaurants?pageNumber=1&pageSize=5
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pageNumber: 1
+  pageSize: 5
+}

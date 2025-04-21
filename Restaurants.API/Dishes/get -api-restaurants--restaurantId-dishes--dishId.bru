@@ -1,0 +1,16 @@
+meta {
+  name: get /api/restaurants/:restaurantId/dishes/:dishId
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/restaurants/:restaurantId/dishes/:dishId
+  body: none
+  auth: none
+}
+
+params:path {
+  restaurantId: 
+  dishId: 
+}

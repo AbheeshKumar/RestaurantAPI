@@ -1,0 +1,21 @@
+meta {
+  name: post /api/identity/manage/2fa
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/api/identity/manage/2fa
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "enable": "",
+    "twoFactorCode": "",
+    "resetSharedKey": "",
+    "resetRecoveryCodes": "",
+    "forgetMachine": ""
+  }
+}

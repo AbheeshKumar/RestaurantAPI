@@ -1,0 +1,25 @@
+meta {
+  name: post /api/restaurants/:restaurantId/dishes
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/restaurants/:restaurantId/dishes
+  body: json
+  auth: none
+}
+
+params:path {
+  restaurantId: 
+}
+
+body:json {
+  {
+    "name": "",
+    "description": "",
+    "price": "",
+    "kiloCalories": "",
+    "restaurantId": ""
+  }
+}

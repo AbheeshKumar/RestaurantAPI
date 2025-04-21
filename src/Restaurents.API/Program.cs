@@ -4,7 +4,9 @@ using Restaurants.Application.Extensions;
 using Restaurents.API.Middleware;
 using Restaurants.Domain.Entities;
 using Restaurents.API.Extensions;
+using Serilog;
 
+try { 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
@@ -14,6 +16,7 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 var scope = app.Services.CreateScope();
+
 var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeders>();
 await seeder.Seed();
 
@@ -41,5 +44,14 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application Failed");
+}
+finally
+{
+    await Log.CloseAndFlushAsync();
+}
 
 public partial class Program { }

@@ -1,0 +1,25 @@
+meta {
+  name: post /api/identity/login
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/identity/login
+  body: json
+  auth: none
+}
+
+params:query {
+  ~useCookies: 
+  ~useSessionCookies: 
+}
+
+body:json {
+  {
+    "email": "",
+    "password": "",
+    "twoFactorCode": "",
+    "twoFactorRecoveryCode": ""
+  }
+}

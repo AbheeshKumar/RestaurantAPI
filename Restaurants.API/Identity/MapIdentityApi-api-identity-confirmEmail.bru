@@ -1,0 +1,17 @@
+meta {
+  name: MapIdentityApi-api/identity/confirmEmail
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/identity/confirmEmail
+  body: none
+  auth: none
+}
+
+params:query {
+  ~userId: 
+  ~code: 
+  ~changedEmail: 
+}

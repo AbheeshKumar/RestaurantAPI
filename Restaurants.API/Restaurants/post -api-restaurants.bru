@@ -1,0 +1,25 @@
+meta {
+  name: post /api/restaurants
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/restaurants
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "",
+    "description": "",
+    "category": "",
+    "hasDelivery": "",
+    "contactEmail": "",
+    "contactNumber": "",
+    "city": "",
+    "street": "",
+    "postalCode": ""
+  }
+}

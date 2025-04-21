@@ -1,0 +1,18 @@
+meta {
+  name: patch /api/identity/user
+  type: http
+  seq: 11
+}
+
+patch {
+  url: {{baseUrl}}/api/identity/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "dateOfBirth": "",
+    "nationality": ""
+  }
+}

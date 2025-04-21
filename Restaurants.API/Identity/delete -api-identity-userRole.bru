@@ -1,0 +1,18 @@
+meta {
+  name: delete /api/identity/userRole
+  type: http
+  seq: 13
+}
+
+delete {
+  url: {{baseUrl}}/api/identity/userRole
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userEmail": "",
+    "roleName": ""
+  }
+}

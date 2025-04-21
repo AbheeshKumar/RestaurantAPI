@@ -1,0 +1,19 @@
+meta {
+  name: get /api/restaurants
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/restaurants?pageNumber=1&pageSize=5
+  body: file
+  auth: none
+}
+
+params:query {
+  pageNumber: 1
+  pageSize: 5
+  ~SearchPhrase: 
+  ~SortBy: 
+  ~SortDirection: 
+}

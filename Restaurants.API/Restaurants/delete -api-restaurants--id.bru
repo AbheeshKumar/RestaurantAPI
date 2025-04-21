@@ -1,0 +1,15 @@
+meta {
+  name: delete /api/restaurants/:id
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/restaurants/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 
+}

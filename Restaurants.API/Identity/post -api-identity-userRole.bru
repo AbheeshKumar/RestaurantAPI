@@ -1,0 +1,18 @@
+meta {
+  name: post /api/identity/userRole
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/api/identity/userRole
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userEmail": "",
+    "roleName": ""
+  }
+}

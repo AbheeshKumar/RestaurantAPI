@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace Restaurants.Infrastructure.Persistance
 {
@@ -19,7 +18,6 @@ namespace Restaurants.Infrastructure.Persistance
 
             var optionsBuilder = new DbContextOptionsBuilder<RestaurantDbContext>();
             optionsBuilder.UseSqlServer(connectionString);
-
             return new RestaurantDbContext(optionsBuilder.Options);
         }
     }

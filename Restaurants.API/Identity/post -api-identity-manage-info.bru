@@ -1,0 +1,19 @@
+meta {
+  name: post /api/identity/manage/info
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/api/identity/manage/info
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "newEmail": "",
+    "newPassword": "",
+    "oldPassword": ""
+  }
+}
